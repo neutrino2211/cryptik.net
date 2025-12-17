@@ -1,7 +1,7 @@
 export default function Header() {
 	return (
-		<header className="fixed top-0 left-0 right-0 bg-cryptik-gray/95 backdrop-blur-md border-b border-white/10 z-50 py-4">
-			<div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
+		<header className="fixed top-0 left-0 right-0 bg-cryptik-gray/95 backdrop-blur-md border-b border-white/10 z-50 py-3">
+			<div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 				<div className="logo">
 					<a href="/" className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-cryptik-green via-cryptik-gold to-white bg-clip-text text-transparent">
 						CRYPTIK
@@ -60,7 +60,7 @@ export default function Header() {
 
 				<a
 					href="/#contact"
-					className="bg-cryptik-green text-white px-6 py-3 rounded-lg font-semibold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green hover:-translate-y-0.5 transition-all duration-300"
+					className="bg-cryptik-green text-white px-5 py-2 rounded font-semibold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green hover:-translate-y-0.5 transition-all duration-300"
 				>
 					Get Started
 				</a>

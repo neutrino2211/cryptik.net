@@ -1,13 +1,13 @@
 export default function Hero() {
 	return (
-		<section className="min-h-screen flex items-center pt-32 pb-16 bg-gradient-to-br from-cryptik-green/5 to-cryptik-gold/5 relative overflow-hidden">
+		<section className="min-h-screen flex items-center pt-28 pb-12 bg-gradient-to-br from-cryptik-green/5 to-cryptik-gold/5 relative overflow-hidden">
 			{/* Background decoration */}
 			<div className="absolute top-[-50%] right-[-20%] w-[70%] h-[140%] bg-cryptik-green/10 rounded-full blur-3xl"></div>
 
-			<div className="max-w-7xl mx-auto px-8 relative z-10">
+			<div className="max-w-7xl mx-auto px-6 relative z-10">
 				<div className="max-w-4xl">
 					{/* Badge */}
-					<div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-8 shadow-lg border border-white/20">
+					<div className="inline-block bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm font-semibold mb-6 shadow-lg border border-white/20">
 						🇳🇬 Based in Abuja, Nigeria
 					</div>
 
@@ -27,16 +27,16 @@ export default function Hero() {
 					</p>
 
 					{/* CTA Buttons */}
-					<div className="flex flex-col sm:flex-row gap-4 mb-16">
+					<div className="flex flex-col sm:flex-row gap-3 mb-12">
 						<a
 							href="#contact"
-							className="bg-cryptik-green text-white px-8 py-4 rounded-lg font-semibold text-lg border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green hover:-translate-y-0.5 hover:shadow-lg hover:shadow-cryptik-green/30 transition-all duration-300 text-center"
+							className="bg-cryptik-green text-white px-6 py-3 rounded font-semibold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green hover:-translate-y-0.5 hover:shadow-lg hover:shadow-cryptik-green/30 transition-all duration-300 text-center"
 						>
 							Start a Conversation
 						</a>
 						<a
 							href="#services"
-							className="bg-transparent text-white px-8 py-4 rounded-lg font-semibold text-lg border-2 border-white hover:bg-white hover:text-cryptik-dark hover:-translate-y-0.5 transition-all duration-300 text-center"
+							className="bg-transparent text-white px-6 py-3 rounded font-semibold border-2 border-white hover:bg-white hover:text-cryptik-dark hover:-translate-y-0.5 transition-all duration-300 text-center"
 						>
 							Explore Services
 						</a>

@@ -27,8 +27,8 @@ function formatDate(date: Date) {
 <Layout title={`${post.data.title} - Cryptik Blog`} description={post.data.description}>
 	<Header client:load />
 
-	<main class="min-h-screen pt-24 pb-16 bg-cryptik-dark">
-		<article class="max-w-4xl mx-auto px-8">
+	<main class="min-h-screen pt-20 pb-12 bg-cryptik-dark">
+		<article class="max-w-4xl mx-auto px-6">
 			<!-- Back Link -->
 			<a
 				href="/blog"
@@ -41,11 +41,11 @@ function formatDate(date: Date) {
 			</a>
 
 			<!-- Article Header -->
-			<header class="mb-12">
+			<header class="mb-10">
 				{/* Tags */}
 				<div class="flex flex-wrap gap-2 mb-6">
 					{post.data.tags.map((tag: string) => (
-						<span class="text-xs bg-cryptik-green/20 text-cryptik-green px-3 py-1 rounded-full">
+						<span class="text-xs bg-cryptik-green/20 text-cryptik-green px-2 py-1 rounded-full">
 							{tag}
 						</span>
 					))}
@@ -72,8 +72,8 @@ function formatDate(date: Date) {
 			</div>
 
 			<!-- Article Footer -->
-			<footer class="mt-16 pt-8 border-t border-white/10">
-				<div class="bg-cryptik-gray/50 rounded-2xl p-8 border-2 border-cryptik-green/20">
+			<footer class="mt-12 pt-8 border-t border-white/10">
+				<div class="bg-cryptik-gray/50 rounded p-6 border-2 border-cryptik-green/20">
 					<h3 class="text-2xl font-bold mb-4">
 						Ready to strengthen your security?
 					</h3>
@@ -82,7 +82,7 @@ function formatDate(date: Date) {
 					</p>
 					<a
 						href="/#contact"
-						class="inline-block bg-cryptik-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+						class="inline-block bg-cryptik-green text-white px-6 py-2 rounded font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
 					>
 						Get in Touch
 					</a>

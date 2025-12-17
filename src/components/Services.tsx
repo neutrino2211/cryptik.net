@@ -53,10 +53,10 @@ export default function Services() {
 	];
 
 	return (
-		<section id="services" className="py-24 bg-cryptik-dark">
-			<div className="max-w-7xl mx-auto px-8">
+		<section id="services" className="py-16 bg-cryptik-dark">
+			<div className="max-w-7xl mx-auto px-6">
 				{/* Section Header */}
-				<div className="text-center mb-16">
+				<div className="text-center mb-12">
 					<h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
 					<p className="text-xl text-gray-400 max-w-2xl mx-auto">
 						Comprehensive cybersecurity solutions tailored to your organization's needs
@@ -64,11 +64,11 @@ export default function Services() {
 				</div>
 
 				{/* Services Grid */}
-				<div className="grid md:grid-cols-3 gap-8">
+				<div className="grid md:grid-cols-3 gap-6">
 					{services.map((service, index) => (
 						<div
 							key={index}
-							className={`group relative p-10 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+							className={`group relative p-6 rounded border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
 								service.featured
 									? 'border-cryptik-green bg-gradient-to-br from-cryptik-green/10 to-cryptik-gold/10'
 									: 'border-white/10 bg-cryptik-gray/50 hover:border-cryptik-green'
@@ -76,13 +76,13 @@ export default function Services() {
 						>
 							{/* Featured Badge */}
 							{service.featured && (
-								<div className="absolute -top-3 right-8 bg-cryptik-green text-white px-4 py-1 rounded-full text-sm font-semibold">
+								<div className="absolute -top-2 right-6 bg-cryptik-green text-white px-3 py-1 rounded-full text-xs font-semibold">
 									Most Popular
 								</div>
 							)}
 
 							{/* Icon */}
-							<div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 ${
+							<div className={`w-14 h-14 rounded flex items-center justify-center mb-4 ${
 								service.featured
 									? 'bg-gradient-to-br from-cryptik-green to-cryptik-gold text-white'
 									: 'bg-cryptik-green text-white'

@@ -34,10 +34,10 @@ export default function About() {
 	];
 
 	return (
-		<section id="about" className="py-24 bg-cryptik-gray">
-			<div className="max-w-7xl mx-auto px-8">
+		<section id="about" className="py-16 bg-cryptik-gray">
+			<div className="max-w-7xl mx-auto px-6">
 				{/* Content Grid */}
-				<div className="grid md:grid-cols-2 gap-16 mb-16">
+				<div className="grid md:grid-cols-2 gap-12 mb-12">
 					{/* About Content */}
 					<div>
 						<h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -79,13 +79,13 @@ export default function About() {
 				</div>
 
 				{/* Expertise Tags */}
-				<div className="bg-cryptik-dark rounded-2xl p-12 text-center">
-					<h3 className="text-3xl font-bold mb-8">Our Expertise Spans</h3>
-					<div className="flex flex-wrap justify-center gap-4">
+				<div className="bg-cryptik-dark rounded p-8 text-center">
+					<h3 className="text-3xl font-bold mb-6">Our Expertise Spans</h3>
+					<div className="flex flex-wrap justify-center gap-3">
 						{expertise.map((skill, index) => (
 							<span
 								key={index}
-								className="bg-cryptik-green text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-cryptik-gold hover:text-cryptik-dark hover:-translate-y-0.5 transition-all duration-300 cursor-default"
+								className="bg-cryptik-green text-white px-4 py-2 rounded-full font-semibold text-sm hover:bg-cryptik-gold hover:text-cryptik-dark hover:-translate-y-0.5 transition-all duration-300 cursor-default"
 							>
 								{skill}
 							</span>
