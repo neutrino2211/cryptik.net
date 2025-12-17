@@ -1,0 +1,196 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map(post => ({
+		params: { slug: post.slug },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(date: Date) {
+	return new Date(date).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	});
+}
+---
+
+<Layout title={`${post.data.title} - Cryptik Blog`} description={post.data.description}>
+	<Header client:load />
+
+	<main class="min-h-screen pt-24 pb-16 bg-cryptik-dark">
+		<article class="max-w-4xl mx-auto px-8">
+			<!-- Back Link -->
+			<a
+				href="/blog"
+				class="inline-flex items-center gap-2 text-cryptik-green hover:text-cryptik-gold transition-colors mb-8"
+			>
+				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+				</svg>
+				Back to Blog
+			</a>
+
+			<!-- Article Header -->
+			<header class="mb-12">
+				{/* Tags */}
+				<div class="flex flex-wrap gap-2 mb-6">
+					{post.data.tags.map((tag: string) => (
+						<span class="text-xs bg-cryptik-green/20 text-cryptik-green px-3 py-1 rounded-full">
+							{tag}
+						</span>
+					))}
+				</div>
+
+				{/* Title */}
+				<h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+					{post.data.title}
+				</h1>
+
+				{/* Meta */}
+				<div class="flex items-center gap-4 text-gray-400">
+					<time datetime={post.data.pubDate.toISOString()}>
+						{formatDate(post.data.pubDate)}
+					</time>
+					<span>•</span>
+					<span>{post.data.author}</span>
+				</div>
+			</header>
+
+			<!-- Article Content -->
+			<div class="prose prose-invert prose-lg prose-cryptik max-w-none">
+				<Content />
+			</div>
+
+			<!-- Article Footer -->
+			<footer class="mt-16 pt-8 border-t border-white/10">
+				<div class="bg-cryptik-gray/50 rounded-2xl p-8 border-2 border-cryptik-green/20">
+					<h3 class="text-2xl font-bold mb-4">
+						Ready to strengthen your security?
+					</h3>
+					<p class="text-gray-400 mb-6">
+						Contact our team to discuss how we can help protect your organization.
+					</p>
+					<a
+						href="/#contact"
+						class="inline-block bg-cryptik-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+					>
+						Get in Touch
+					</a>
+				</div>
+			</footer>
+		</article>
+	</main>
+
+	<Footer client:load />
+</Layout>
+
+<style is:global>
+	/* Prose Styling for Blog Content */
+	.prose-cryptik {
+		color: #e5e7eb;
+	}
+
+	.prose-cryptik h1,
+	.prose-cryptik h2,
+	.prose-cryptik h3,
+	.prose-cryptik h4 {
+		color: white;
+		font-weight: 700;
+		margin-top: 2em;
+		margin-bottom: 1em;
+	}
+
+	.prose-cryptik h2 {
+		font-size: 1.875rem;
+		border-bottom: 2px solid rgba(122, 184, 122, 0.2);
+		padding-bottom: 0.5rem;
+	}
+
+	.prose-cryptik h3 {
+		font-size: 1.5rem;
+		color: #7AB87A;
+	}
+
+	.prose-cryptik p {
+		margin-bottom: 1.5em;
+		line-height: 1.8;
+	}
+
+	.prose-cryptik a {
+		color: #7AB87A;
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+
+	.prose-cryptik a:hover {
+		color: #E5D073;
+	}
+
+	.prose-cryptik ul,
+	.prose-cryptik ol {
+		margin: 1.5em 0;
+		padding-left: 2em;
+	}
+
+	.prose-cryptik li {
+		margin-bottom: 0.5em;
+		color: #d1d5db;
+	}
+
+	.prose-cryptik code {
+		background: #1C1C1C;
+		padding: 0.2em 0.4em;
+		border-radius: 0.25rem;
+		font-size: 0.875em;
+		color: #7AB87A;
+	}
+
+	.prose-cryptik pre {
+		background: #1C1C1C;
+		padding: 1.5em;
+		border-radius: 0.5rem;
+		overflow-x: auto;
+		margin: 2em 0;
+		border: 1px solid rgba(122, 184, 122, 0.2);
+	}
+
+	.prose-cryptik pre code {
+		background: transparent;
+		padding: 0;
+		color: #e5e7eb;
+	}
+
+	.prose-cryptik blockquote {
+		border-left: 4px solid #7AB87A;
+		padding-left: 1.5em;
+		margin: 2em 0;
+		font-style: italic;
+		color: #d1d5db;
+	}
+
+	.prose-cryptik strong {
+		color: white;
+		font-weight: 600;
+	}
+
+	.prose-cryptik img {
+		border-radius: 0.5rem;
+		margin: 2em 0;
+	}
+
+	.prose-cryptik hr {
+		border: none;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		margin: 3em 0;
+	}
+</style>

@@ -1,0 +1,205 @@
+---
+// Services section component
+---
+
+<section id="services" class="services">
+	<div class="container">
+		<div class="section-header">
+			<h2>Our Services</h2>
+			<p>Comprehensive cybersecurity solutions tailored to your organization's needs</p>
+		</div>
+
+		<div class="services-grid">
+			<div class="service-card">
+				<div class="icon">
+					<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.5 2C7.842 2 6.5 3.342 6.5 5v14c0 1.658 1.342 3 3 3h5c1.658 0 3-1.342 3-3V5c0-1.658-1.342-3-3-3h-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M12 18h.01M8 6h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+				</div>
+				<h3>Reverse Engineering</h3>
+				<p>Deep analysis of malware, software, and firmware to uncover vulnerabilities, understand threats, and develop robust defenses.</p>
+				<ul class="service-features">
+					<li>Malware analysis and threat intelligence</li>
+					<li>Firmware and binary analysis</li>
+					<li>Vulnerability research</li>
+					<li>Protocol reverse engineering</li>
+				</ul>
+			</div>
+
+			<div class="service-card featured">
+				<div class="featured-badge">Most Popular</div>
+				<div class="icon">
+					<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
+				<h3>Red Team Operations</h3>
+				<p>Simulate real-world attacks to test your organization's security posture and incident response capabilities.</p>
+				<ul class="service-features">
+					<li>Penetration testing and exploitation</li>
+					<li>Social engineering assessments</li>
+					<li>Physical security testing</li>
+					<li>Post-exploitation and lateral movement</li>
+				</ul>
+			</div>
+
+			<div class="service-card">
+				<div class="icon">
+					<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M9 7h6M9 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+				</div>
+				<h3>Security Training</h3>
+				<p>Hands-on cybersecurity training programs designed to upskill your team and build a security-first culture.</p>
+				<ul class="service-features">
+					<li>Custom security awareness programs</li>
+					<li>Technical security training</li>
+					<li>Secure development practices</li>
+					<li>Incident response workshops</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.services {
+		padding: 6rem 0;
+		background: white;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: var(--color-black);
+	}
+
+	.section-header p {
+		font-size: 1.1rem;
+		color: var(--color-gray);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+	}
+
+	.service-card {
+		background: white;
+		padding: 2.5rem;
+		border-radius: 16px;
+		border: 2px solid var(--color-light-gray);
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	.service-card:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+		border-color: var(--color-green);
+	}
+
+	.service-card.featured {
+		border-color: var(--color-green);
+		background: linear-gradient(135deg, rgba(122, 184, 122, 0.05) 0%, rgba(229, 208, 115, 0.05) 100%);
+	}
+
+	.featured-badge {
+		position: absolute;
+		top: -12px;
+		right: 2rem;
+		background: var(--color-green);
+		color: white;
+		padding: 0.4rem 1rem;
+		border-radius: 20px;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	.icon {
+		width: 64px;
+		height: 64px;
+		background: var(--color-green);
+		color: white;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.service-card.featured .icon {
+		background: linear-gradient(135deg, var(--color-green) 0%, var(--color-gold) 100%);
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: var(--color-black);
+	}
+
+	.service-card > p {
+		color: var(--color-gray);
+		margin-bottom: 1.5rem;
+		line-height: 1.7;
+	}
+
+	.service-features {
+		list-style: none;
+	}
+
+	.service-features li {
+		color: var(--color-gray);
+		padding-left: 1.5rem;
+		margin-bottom: 0.75rem;
+		position: relative;
+	}
+
+	.service-features li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: var(--color-green);
+		font-weight: bold;
+	}
+
+	@media (max-width: 768px) {
+		.services {
+			padding: 4rem 0;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		.section-header h2 {
+			font-size: 2rem;
+		}
+
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.service-card {
+			padding: 2rem;
+		}
+	}
+</style>

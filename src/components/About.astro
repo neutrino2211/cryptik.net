@@ -1,0 +1,220 @@
+---
+// About section component
+---
+
+<section id="about" class="about">
+	<div class="container">
+		<div class="content-grid">
+			<div class="about-content">
+				<h2>Industry Experts You Can Trust</h2>
+				<p class="lead">
+					Cryptik brings together seasoned cybersecurity professionals with deep expertise
+					in offensive security, reverse engineering, and security education.
+				</p>
+				<p>
+					Based in Abuja, Nigeria's capital, we serve organizations across Africa and beyond.
+					Our team combines years of hands-on experience in real-world security operations,
+					threat analysis, and building robust defensive strategies.
+				</p>
+				<p>
+					We don't just find vulnerabilities—we help you understand them, fix them, and
+					prevent them from happening again. Our approach is collaborative, educational,
+					and focused on long-term security improvement.
+				</p>
+			</div>
+
+			<div class="why-us">
+				<h3>Why Choose Cryptik</h3>
+				<div class="reasons">
+					<div class="reason">
+						<div class="reason-icon">🎯</div>
+						<div>
+							<h4>Real-World Experience</h4>
+							<p>Our team has worked on critical security challenges across industries</p>
+						</div>
+					</div>
+					<div class="reason">
+						<div class="reason-icon">🔒</div>
+						<div>
+							<h4>Proven Methodologies</h4>
+							<p>Industry-standard frameworks combined with custom approaches</p>
+						</div>
+					</div>
+					<div class="reason">
+						<div class="reason-icon">📚</div>
+						<div>
+							<h4>Knowledge Transfer</h4>
+							<p>We empower your team with the skills to maintain security long-term</p>
+						</div>
+					</div>
+					<div class="reason">
+						<div class="reason-icon">🤝</div>
+						<div>
+							<h4>Local Expertise</h4>
+							<p>Understanding the unique security landscape of Nigerian organizations</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="certifications">
+			<h3>Our Expertise Spans</h3>
+			<div class="cert-tags">
+				<span class="cert-tag">OSCP</span>
+				<span class="cert-tag">Malware Analysis</span>
+				<span class="cert-tag">Binary Exploitation</span>
+				<span class="cert-tag">Threat Intelligence</span>
+				<span class="cert-tag">Security Architecture</span>
+				<span class="cert-tag">Incident Response</span>
+				<span class="cert-tag">Secure Coding</span>
+				<span class="cert-tag">Cloud Security</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about {
+		padding: 6rem 0;
+		background: var(--color-light-gray);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.content-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		margin-bottom: 4rem;
+	}
+
+	.about-content h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1.5rem;
+		color: var(--color-black);
+	}
+
+	.lead {
+		font-size: 1.2rem;
+		color: var(--color-green);
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		line-height: 1.7;
+	}
+
+	.about-content p {
+		color: var(--color-gray);
+		margin-bottom: 1.25rem;
+		line-height: 1.8;
+	}
+
+	.why-us h3 {
+		font-size: 1.8rem;
+		margin-bottom: 2rem;
+		color: var(--color-black);
+	}
+
+	.reasons {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.reason {
+		display: flex;
+		gap: 1rem;
+		align-items: start;
+	}
+
+	.reason-icon {
+		font-size: 2rem;
+		flex-shrink: 0;
+	}
+
+	.reason h4 {
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+		color: var(--color-black);
+	}
+
+	.reason p {
+		color: var(--color-gray);
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	.certifications {
+		background: white;
+		padding: 3rem;
+		border-radius: 16px;
+		text-align: center;
+	}
+
+	.certifications h3 {
+		font-size: 1.8rem;
+		margin-bottom: 2rem;
+		color: var(--color-black);
+	}
+
+	.cert-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.cert-tag {
+		background: var(--color-green);
+		color: white;
+		padding: 0.75rem 1.5rem;
+		border-radius: 25px;
+		font-weight: 600;
+		font-size: 0.95rem;
+		transition: all 0.3s ease;
+	}
+
+	.cert-tag:hover {
+		background: var(--color-gold);
+		color: var(--color-black);
+		transform: translateY(-2px);
+	}
+
+	@media (max-width: 968px) {
+		.content-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.about {
+			padding: 4rem 0;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		.about-content h2 {
+			font-size: 2rem;
+		}
+
+		.certifications {
+			padding: 2rem 1.5rem;
+		}
+
+		.cert-tags {
+			gap: 0.75rem;
+		}
+
+		.cert-tag {
+			padding: 0.6rem 1.2rem;
+			font-size: 0.9rem;
+		}
+	}
+</style>

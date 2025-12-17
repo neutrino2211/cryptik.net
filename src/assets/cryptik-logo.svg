@@ -1,0 +1,10 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green left crescent -->
+  <path d="M50 100 Q30 50, 70 30 Q90 20, 105 25 Q85 35, 75 55 Q60 80, 60 100 Q60 120, 75 145 Q85 165, 105 175 Q90 180, 70 170 Q30 150, 50 100Z" fill="#7AB87A"/>
+
+  <!-- Black top right curve -->
+  <path d="M110 20 Q160 10, 190 50 Q200 70, 195 85 Q175 70, 160 65 Q135 55, 120 65 Q115 50, 112 35 Q110 25, 110 20Z" fill="#1C1C1C"/>
+
+  <!-- Gold/Yellow bottom right curve -->
+  <path d="M120 135 Q135 145, 160 135 Q175 130, 195 115 Q200 130, 190 150 Q160 190, 110 180 Q90 175, 105 175 Q115 165, 118 150 Q120 140, 120 135Z" fill="#E5D073"/>
+</svg>

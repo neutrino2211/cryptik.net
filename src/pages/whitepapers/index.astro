@@ -1,0 +1,119 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+const allWhitepapers = await getCollection('whitepapers');
+const sortedWhitepapers = allWhitepapers.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date: Date) {
+	return new Date(date).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	});
+}
+---
+
+<Layout title="Whitepapers - Cryptik" description="In-depth security research and analysis from Cryptik's expert team.">
+	<Header client:load />
+
+	<main class="min-h-screen pt-24 pb-16 bg-cryptik-dark">
+		<div class="max-w-7xl mx-auto px-8">
+			<!-- Page Header -->
+			<div class="mb-16">
+				<h1 class="text-5xl md:text-6xl font-bold mb-6">
+					<span class="bg-gradient-to-r from-cryptik-green to-cryptik-gold bg-clip-text text-transparent">
+						Research & Whitepapers
+					</span>
+				</h1>
+				<p class="text-xl text-gray-400 max-w-3xl">
+					Comprehensive research, threat intelligence, and technical guides from our security experts.
+				</p>
+			</div>
+
+			<!-- Whitepapers List -->
+			<div class="space-y-6">
+				{sortedWhitepapers.map((paper) => (
+					<article class="group bg-cryptik-gray/50 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-cryptik-green transition-all duration-300">
+						<div class="md:flex">
+							{/* Content */}
+							<div class="flex-1 p-8">
+								{/* Category */}
+								<div class="inline-block bg-cryptik-green/20 text-cryptik-green px-4 py-1 rounded-full text-sm font-semibold mb-4">
+									{paper.data.category}
+								</div>
+
+								{/* Title */}
+								<h2 class="text-3xl font-bold mb-4 group-hover:text-cryptik-green transition-colors">
+									<a href={`/whitepapers/${paper.slug}`}>
+										{paper.data.title}
+									</a>
+								</h2>
+
+								{/* Description */}
+								<p class="text-gray-400 mb-6 text-lg leading-relaxed">
+									{paper.data.description}
+								</p>
+
+								{/* Meta */}
+								<div class="flex items-center gap-4 text-sm text-gray-400 mb-6">
+									<time datetime={paper.data.pubDate.toISOString()}>
+										{formatDate(paper.data.pubDate)}
+									</time>
+									<span>•</span>
+									<span>{paper.data.author}</span>
+								</div>
+
+								{/* Actions */}
+								<div class="flex flex-wrap gap-4">
+									<a
+										href={`/whitepapers/${paper.slug}`}
+										class="inline-flex items-center gap-2 bg-cryptik-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+									>
+										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+										</svg>
+										Read Whitepaper
+									</a>
+									{paper.data.downloadUrl && (
+										<a
+											href={paper.data.downloadUrl}
+											class="inline-flex items-center gap-2 border-2 border-cryptik-green text-cryptik-green px-6 py-3 rounded-lg font-semibold hover:bg-cryptik-green hover:text-white transition-all"
+											download
+										>
+											<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+											</svg>
+											Download PDF
+										</a>
+									)}
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+
+			<!-- CTA Section -->
+			<div class="mt-16 bg-gradient-to-br from-cryptik-green/10 to-cryptik-gold/10 rounded-2xl p-12 border-2 border-cryptik-green/20 text-center">
+				<h3 class="text-3xl font-bold mb-4">
+					Need Custom Research?
+				</h3>
+				<p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+					Our team can provide tailored threat intelligence and security assessments for your organization.
+				</p>
+				<a
+					href="/#contact"
+					class="inline-block bg-cryptik-green text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+				>
+					Contact Our Researchers
+				</a>
+			</div>
+		</div>
+	</main>
+
+	<Footer client:load />
+</Layout>

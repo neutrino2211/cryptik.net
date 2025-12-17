@@ -1,0 +1,123 @@
+---
+// Header/Navigation component
+---
+
+<header>
+	<div class="container">
+		<div class="logo">
+			<a href="/">
+				<span class="logo-text">CRYPTIK</span>
+			</a>
+		</div>
+		<nav>
+			<ul class="nav-links">
+				<li><a href="#services">Services</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+		<a href="#contact" class="cta-button">Get Started</a>
+	</div>
+</header>
+
+<style>
+	header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		z-index: 1000;
+		padding: 1rem 0;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo-text {
+		font-size: 1.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, var(--color-green) 0%, var(--color-gold) 50%, var(--color-black) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	nav {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+	}
+
+	.nav-links {
+		display: flex;
+		list-style: none;
+		gap: 2.5rem;
+		align-items: center;
+	}
+
+	.nav-links a {
+		font-weight: 500;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+
+	.nav-links a:hover {
+		color: var(--color-green);
+	}
+
+	.nav-links a::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: var(--color-green);
+		transition: width 0.3s ease;
+	}
+
+	.nav-links a:hover::after {
+		width: 100%;
+	}
+
+	.cta-button {
+		background: var(--color-green);
+		color: white;
+		padding: 0.75rem 1.5rem;
+		border-radius: 8px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		border: 2px solid var(--color-green);
+	}
+
+	.cta-button:hover {
+		background: transparent;
+		color: var(--color-green);
+		transform: translateY(-2px);
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 0 1rem;
+		}
+
+		nav {
+			display: none;
+		}
+
+		.cta-button {
+			padding: 0.6rem 1.2rem;
+			font-size: 0.9rem;
+		}
+	}
+</style>

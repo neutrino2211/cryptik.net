@@ -1,0 +1,204 @@
+---
+// Hero section component
+---
+
+<section class="hero">
+	<div class="container">
+		<div class="hero-content">
+			<div class="badge">
+				<span>🇳🇬 Based in Abuja, Nigeria</span>
+			</div>
+			<h1>
+				Elite Cybersecurity<br />
+				<span class="gradient-text">Built by Experts</span>
+			</h1>
+			<p class="hero-description">
+				Industry-leading security professionals delivering world-class reverse engineering,
+				red team operations, and cybersecurity training. Protecting organizations across Nigeria
+				and beyond.
+			</p>
+			<div class="hero-actions">
+				<a href="#contact" class="primary-button">Start a Conversation</a>
+				<a href="#services" class="secondary-button">Explore Services</a>
+			</div>
+			<div class="stats">
+				<div class="stat">
+					<div class="stat-number">10+</div>
+					<div class="stat-label">Years Combined Experience</div>
+				</div>
+				<div class="stat">
+					<div class="stat-number">50+</div>
+					<div class="stat-label">Security Assessments</div>
+				</div>
+				<div class="stat">
+					<div class="stat-number">100%</div>
+					<div class="stat-label">Client Satisfaction</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		padding: 8rem 0 4rem;
+		background: linear-gradient(135deg, rgba(122, 184, 122, 0.05) 0%, rgba(229, 208, 115, 0.05) 100%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		right: -20%;
+		width: 70%;
+		height: 140%;
+		background: radial-gradient(circle, rgba(122, 184, 122, 0.1) 0%, transparent 70%);
+		border-radius: 50%;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-content {
+		max-width: 800px;
+	}
+
+	.badge {
+		display: inline-block;
+		background: white;
+		padding: 0.5rem 1rem;
+		border-radius: 50px;
+		font-size: 0.9rem;
+		font-weight: 600;
+		margin-bottom: 2rem;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	h1 {
+		font-size: 3.5rem;
+		margin-bottom: 1.5rem;
+		color: var(--color-black);
+	}
+
+	.gradient-text {
+		background: linear-gradient(135deg, var(--color-green) 0%, var(--color-gold) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-description {
+		font-size: 1.25rem;
+		color: var(--color-gray);
+		margin-bottom: 2.5rem;
+		line-height: 1.8;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 4rem;
+	}
+
+	.primary-button {
+		background: var(--color-green);
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		font-size: 1.1rem;
+		transition: all 0.3s ease;
+		border: 2px solid var(--color-green);
+	}
+
+	.primary-button:hover {
+		background: transparent;
+		color: var(--color-green);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(122, 184, 122, 0.3);
+	}
+
+	.secondary-button {
+		background: transparent;
+		color: var(--color-black);
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		font-size: 1.1rem;
+		transition: all 0.3s ease;
+		border: 2px solid var(--color-black);
+	}
+
+	.secondary-button:hover {
+		background: var(--color-black);
+		color: white;
+		transform: translateY(-2px);
+	}
+
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		padding-top: 2rem;
+		border-top: 2px solid rgba(0, 0, 0, 0.1);
+	}
+
+	.stat-number {
+		font-size: 2.5rem;
+		font-weight: 800;
+		color: var(--color-green);
+		margin-bottom: 0.5rem;
+	}
+
+	.stat-label {
+		font-size: 0.9rem;
+		color: var(--color-gray);
+		font-weight: 500;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 6rem 0 3rem;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		.hero-description {
+			font-size: 1.1rem;
+		}
+
+		.hero-actions {
+			flex-direction: column;
+		}
+
+		.primary-button,
+		.secondary-button {
+			text-align: center;
+		}
+
+		.stats {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.stat {
+			text-align: center;
+		}
+	}
+</style>

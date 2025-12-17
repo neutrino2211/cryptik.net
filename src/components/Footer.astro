@@ -1,0 +1,228 @@
+---
+// Footer component
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-section">
+				<h3 class="logo-text">CRYPTIK</h3>
+				<p>
+					Elite cybersecurity services<br />
+					powered by industry experts.
+				</p>
+				<div class="social-links">
+					<a href="https://twitter.com/cryptik" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+						</svg>
+					</a>
+					<a href="https://linkedin.com/company/cryptik" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+							<circle cx="4" cy="4" r="2"/>
+						</svg>
+					</a>
+					<a href="https://github.com/cryptik" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+
+			<div class="footer-section">
+				<h4>Services</h4>
+				<ul>
+					<li><a href="#services">Reverse Engineering</a></li>
+					<li><a href="#services">Red Team Operations</a></li>
+					<li><a href="#services">Security Training</a></li>
+					<li><a href="#contact">Consulting</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-section">
+				<h4>Company</h4>
+				<ul>
+					<li><a href="#about">About Us</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#careers">Careers</a></li>
+					<li><a href="#blog">Blog</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-section">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#case-studies">Case Studies</a></li>
+					<li><a href="#whitepapers">Whitepapers</a></li>
+					<li><a href="#tools">Security Tools</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<p>&copy; {currentYear} Cryptik. All rights reserved.</p>
+			<div class="footer-links">
+				<a href="#privacy">Privacy Policy</a>
+				<span class="separator">•</span>
+				<a href="#terms">Terms of Service</a>
+				<span class="separator">•</span>
+				<a href="#responsible-disclosure">Responsible Disclosure</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: var(--color-black);
+		color: white;
+		padding: 4rem 0 2rem;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr 1fr;
+		gap: 3rem;
+		margin-bottom: 3rem;
+		padding-bottom: 3rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.logo-text {
+		font-size: 1.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, var(--color-green) 0%, var(--color-gold) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		margin-bottom: 1rem;
+	}
+
+	.footer-section p {
+		color: rgba(255, 255, 255, 0.7);
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.social-links {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.social-links a {
+		width: 40px;
+		height: 40px;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+	}
+
+	.social-links a:hover {
+		background: var(--color-green);
+		transform: translateY(-2px);
+	}
+
+	.footer-section h4 {
+		font-size: 1.1rem;
+		margin-bottom: 1.5rem;
+		color: white;
+	}
+
+	.footer-section ul {
+		list-style: none;
+	}
+
+	.footer-section ul li {
+		margin-bottom: 0.75rem;
+	}
+
+	.footer-section ul li a {
+		color: rgba(255, 255, 255, 0.7);
+		transition: color 0.3s ease;
+	}
+
+	.footer-section ul li a:hover {
+		color: var(--color-green);
+	}
+
+	.footer-bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.footer-bottom p {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 0.9rem;
+	}
+
+	.footer-links {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: 0.9rem;
+	}
+
+	.footer-links a {
+		color: rgba(255, 255, 255, 0.5);
+		transition: color 0.3s ease;
+	}
+
+	.footer-links a:hover {
+		color: var(--color-green);
+	}
+
+	.separator {
+		color: rgba(255, 255, 255, 0.3);
+	}
+
+	@media (max-width: 968px) {
+		.footer-content {
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.footer {
+			padding: 3rem 0 1.5rem;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			margin-bottom: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		.footer-bottom {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.footer-links {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+</style>

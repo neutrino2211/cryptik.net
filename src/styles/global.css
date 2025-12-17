@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cryptik-green: #7AB87A;
+  --color-cryptik-gold: #E5D073;
+  --color-cryptik-dark: #0A0A0A;
+  --color-cryptik-gray: #1C1C1C;
+}

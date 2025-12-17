@@ -1,0 +1,268 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+export async function getStaticPaths() {
+	const whitepapers = await getCollection('whitepapers');
+	return whitepapers.map(paper => ({
+		params: { slug: paper.slug },
+		props: { paper },
+	}));
+}
+
+const { paper } = Astro.props;
+const { Content } = await paper.render();
+
+function formatDate(date: Date) {
+	return new Date(date).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	});
+}
+---
+
+<Layout title={`${paper.data.title} - Cryptik Whitepapers`} description={paper.data.description}>
+	<Header client:load />
+
+	<main class="min-h-screen pt-24 pb-16 bg-cryptik-dark">
+		<article class="max-w-5xl mx-auto px-8">
+			<!-- Back Link -->
+			<a
+				href="/whitepapers"
+				class="inline-flex items-center gap-2 text-cryptik-green hover:text-cryptik-gold transition-colors mb-8"
+			>
+				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+				</svg>
+				Back to Whitepapers
+			</a>
+
+			<!-- Article Header -->
+			<header class="mb-12 pb-8 border-b border-white/10">
+				{/* Category */}
+				<div class="inline-block bg-cryptik-green/20 text-cryptik-green px-4 py-1 rounded-full text-sm font-semibold mb-6">
+					{paper.data.category}
+				</div>
+
+				{/* Title */}
+				<h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+					{paper.data.title}
+				</h1>
+
+				{/* Meta */}
+				<div class="flex items-center gap-4 text-gray-400 mb-8">
+					<time datetime={paper.data.pubDate.toISOString()}>
+						{formatDate(paper.data.pubDate)}
+					</time>
+					<span>•</span>
+					<span>{paper.data.author}</span>
+				</div>
+
+				{/* Download Button */}
+				{paper.data.downloadUrl && (
+					<a
+						href={paper.data.downloadUrl}
+						class="inline-flex items-center gap-2 bg-cryptik-green text-white px-8 py-4 rounded-lg font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all text-lg"
+						download
+					>
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+						</svg>
+						Download Full PDF
+					</a>
+				)}
+			</header>
+
+			<!-- Abstract/Description -->
+			<div class="bg-cryptik-gray/50 rounded-2xl p-8 mb-12 border-l-4 border-cryptik-green">
+				<h2 class="text-xl font-bold mb-4 text-cryptik-green">Abstract</h2>
+				<p class="text-lg text-gray-300 leading-relaxed">
+					{paper.data.description}
+				</p>
+			</div>
+
+			<!-- Content -->
+			<div class="prose prose-invert prose-lg prose-cryptik max-w-none">
+				<Content />
+			</div>
+
+			<!-- Footer CTA -->
+			<footer class="mt-16 pt-8 border-t border-white/10">
+				<div class="grid md:grid-cols-2 gap-8">
+					{/* Contact CTA */}
+					<div class="bg-cryptik-gray/50 rounded-2xl p-8 border-2 border-cryptik-green/20">
+						<h3 class="text-2xl font-bold mb-4">
+							Questions About This Research?
+						</h3>
+						<p class="text-gray-400 mb-6">
+							Our team is available to discuss this whitepaper and how it applies to your organization.
+						</p>
+						<a
+							href="/#contact"
+							class="inline-block bg-cryptik-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+						>
+							Contact Us
+						</a>
+					</div>
+
+					{/* More Resources */}
+					<div class="bg-cryptik-gray/50 rounded-2xl p-8 border-2 border-cryptik-green/20">
+						<h3 class="text-2xl font-bold mb-4">
+							More Resources
+						</h3>
+						<p class="text-gray-400 mb-6">
+							Explore our other whitepapers and security insights.
+						</p>
+						<div class="space-y-3">
+							<a
+								href="/whitepapers"
+								class="block text-cryptik-green hover:text-cryptik-gold transition-colors font-semibold"
+							>
+								→ View All Whitepapers
+							</a>
+							<a
+								href="/blog"
+								class="block text-cryptik-green hover:text-cryptik-gold transition-colors font-semibold"
+							>
+								→ Read Our Blog
+							</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</article>
+	</main>
+
+	<Footer client:load />
+</Layout>
+
+<style is:global>
+	/* Prose Styling for Whitepaper Content */
+	.prose-cryptik {
+		color: #e5e7eb;
+	}
+
+	.prose-cryptik h1,
+	.prose-cryptik h2,
+	.prose-cryptik h3,
+	.prose-cryptik h4 {
+		color: white;
+		font-weight: 700;
+		margin-top: 2.5em;
+		margin-bottom: 1em;
+	}
+
+	.prose-cryptik h2 {
+		font-size: 2rem;
+		border-bottom: 2px solid rgba(122, 184, 122, 0.2);
+		padding-bottom: 0.5rem;
+	}
+
+	.prose-cryptik h3 {
+		font-size: 1.5rem;
+		color: #7AB87A;
+	}
+
+	.prose-cryptik h4 {
+		font-size: 1.25rem;
+		color: #E5D073;
+	}
+
+	.prose-cryptik p {
+		margin-bottom: 1.5em;
+		line-height: 1.8;
+	}
+
+	.prose-cryptik a {
+		color: #7AB87A;
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+
+	.prose-cryptik a:hover {
+		color: #E5D073;
+	}
+
+	.prose-cryptik ul,
+	.prose-cryptik ol {
+		margin: 1.5em 0;
+		padding-left: 2em;
+	}
+
+	.prose-cryptik li {
+		margin-bottom: 0.75em;
+		color: #d1d5db;
+	}
+
+	.prose-cryptik code {
+		background: #1C1C1C;
+		padding: 0.2em 0.4em;
+		border-radius: 0.25rem;
+		font-size: 0.875em;
+		color: #7AB87A;
+		font-family: 'Courier New', monospace;
+	}
+
+	.prose-cryptik pre {
+		background: #1C1C1C;
+		padding: 1.5em;
+		border-radius: 0.5rem;
+		overflow-x: auto;
+		margin: 2em 0;
+		border: 1px solid rgba(122, 184, 122, 0.2);
+	}
+
+	.prose-cryptik pre code {
+		background: transparent;
+		padding: 0;
+		color: #e5e7eb;
+		font-size: 0.875rem;
+	}
+
+	.prose-cryptik blockquote {
+		border-left: 4px solid #7AB87A;
+		padding-left: 1.5em;
+		margin: 2em 0;
+		font-style: italic;
+		color: #d1d5db;
+	}
+
+	.prose-cryptik strong {
+		color: white;
+		font-weight: 600;
+	}
+
+	.prose-cryptik table {
+		width: 100%;
+		margin: 2em 0;
+		border-collapse: collapse;
+	}
+
+	.prose-cryptik th,
+	.prose-cryptik td {
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 0.75em;
+		text-align: left;
+	}
+
+	.prose-cryptik th {
+		background: #1C1C1C;
+		color: #7AB87A;
+		font-weight: 600;
+	}
+
+	.prose-cryptik img {
+		border-radius: 0.5rem;
+		margin: 2em 0;
+		border: 1px solid rgba(122, 184, 122, 0.2);
+	}
+
+	.prose-cryptik hr {
+		border: none;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		margin: 3em 0;
+	}
+</style>
