@@ -1,12 +1,17 @@
 {
-  "name": "",
+  "name": "cryptik.net",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "start": "astro"
+  },
+  "engines": {
+    "node": ">=20.18.1",
+    "pnpm": ">=10.0.0"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
