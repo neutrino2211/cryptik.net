@@ -53,45 +53,45 @@ export default function Services() {
 	];
 
 	return (
-		<section id="services" className="py-16 bg-cryptik-dark">
+		<section id="services" className="py-20 bg-cryptik-dark">
 			<div className="max-w-7xl mx-auto px-6">
 				{/* Section Header */}
-				<div className="text-center mb-12">
-					<h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+				<div className="text-center mb-16">
+					<h2 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
 					<p className="text-xl text-gray-400 max-w-2xl mx-auto">
 						Comprehensive cybersecurity solutions tailored to your organization's needs
 					</p>
 				</div>
 
 				{/* Services Grid */}
-				<div className="grid md:grid-cols-3 gap-6">
+				<div className="grid md:grid-cols-3 gap-8">
 					{services.map((service, index) => (
 						<div
 							key={index}
-							className={`group relative p-6 rounded border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+							className={`group relative p-8 rounded-sm border-3 transition-all brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none ${
 								service.featured
-									? 'border-cryptik-green bg-gradient-to-br from-cryptik-green/10 to-cryptik-gold/10'
-									: 'border-white/10 bg-cryptik-gray/50 hover:border-cryptik-green'
+									? 'bg-cryptik-green/10 border-cryptik-green'
+									: 'bg-cryptik-gray/50 border-white/10 hover:border-cryptik-green'
 							}`}
 						>
 							{/* Featured Badge */}
 							{service.featured && (
-								<div className="absolute -top-2 right-6 bg-cryptik-green text-white px-3 py-1 rounded-full text-xs font-semibold">
+								<div className="absolute -top-3 -right-3 bg-cryptik-green text-black px-3 py-1.5 rounded-sm text-xs font-bold border-2 border-cryptik-green">
 									Most Popular
 								</div>
 							)}
 
 							{/* Icon */}
-							<div className={`w-14 h-14 rounded flex items-center justify-center mb-4 ${
+							<div className={`w-16 h-16 rounded-sm border-2 flex items-center justify-center mb-6 ${
 								service.featured
-									? 'bg-gradient-to-br from-cryptik-green to-cryptik-gold text-white'
-									: 'bg-cryptik-green text-white'
+									? 'bg-cryptik-green text-black border-cryptik-green'
+									: 'bg-cryptik-green/20 text-cryptik-green border-cryptik-green'
 							}`}>
 								{service.icon}
 							</div>
 
 							{/* Title */}
-							<h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+							<h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
 
 							{/* Description */}
 							<p className="text-gray-400 mb-6 leading-relaxed">{service.description}</p>

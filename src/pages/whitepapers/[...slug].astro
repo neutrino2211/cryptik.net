@@ -27,12 +27,12 @@ function formatDate(date: Date) {
 <Layout title={`${paper.data.title} - Cryptik Whitepapers`} description={paper.data.description}>
 	<Header client:load />
 
-	<main class="min-h-screen pt-20 pb-12 bg-cryptik-dark">
+	<main class="min-h-screen pt-28 pb-20 bg-cryptik-dark">
 		<article class="max-w-5xl mx-auto px-6">
 			<!-- Back Link -->
 			<a
 				href="/whitepapers"
-				class="inline-flex items-center gap-2 text-cryptik-green hover:text-cryptik-gold transition-colors mb-8"
+				class="inline-flex items-center gap-2 text-cryptik-green hover:text-cryptik-gold transition-colors mb-8 font-semibold"
 			>
 				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -43,7 +43,7 @@ function formatDate(date: Date) {
 			<!-- Article Header -->
 			<header class="mb-10 pb-8 border-b border-white/10">
 				{/* Category */}
-				<div class="inline-block bg-cryptik-green/20 text-cryptik-green px-3 py-1 rounded-full text-sm font-semibold mb-6">
+				<div class="inline-block bg-cryptik-green/20 text-cryptik-green px-4 py-2 rounded-sm text-sm font-semibold mb-6 border border-cryptik-green/30">
 					{paper.data.category}
 				</div>
 
@@ -65,7 +65,7 @@ function formatDate(date: Date) {
 				{paper.data.downloadUrl && (
 					<a
 						href={paper.data.downloadUrl}
-						class="inline-flex items-center gap-2 bg-cryptik-green text-white px-6 py-3 rounded font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+						class="inline-flex items-center gap-2 bg-cryptik-green text-black px-6 py-3 rounded-sm font-bold hover:bg-transparent hover:text-cryptik-green hover:border-cryptik-green border-2 border-cryptik-green transition-all"
 						download
 					>
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ function formatDate(date: Date) {
 			</header>
 
 			<!-- Abstract/Description -->
-			<div class="bg-cryptik-gray/50 rounded p-6 mb-10 border-l-4 border-cryptik-green">
+			<div class="bg-cryptik-green/10 border-2 border-cryptik-green/30 rounded-sm p-8 mb-10">
 				<h2 class="text-xl font-bold mb-4 text-cryptik-green">Abstract</h2>
 				<p class="text-lg text-gray-300 leading-relaxed">
 					{paper.data.description}
@@ -93,7 +93,7 @@ function formatDate(date: Date) {
 			<footer class="mt-12 pt-8 border-t border-white/10">
 				<div class="grid md:grid-cols-2 gap-6">
 					{/* Contact CTA */}
-					<div class="bg-cryptik-gray/50 rounded p-6 border-2 border-cryptik-green/20">
+					<div class="bg-cryptik-gray/50 border-2 border-cryptik-green/30 rounded-sm p-8">
 						<h3 class="text-2xl font-bold mb-4">
 							Questions About This Research?
 						</h3>
@@ -102,14 +102,14 @@ function formatDate(date: Date) {
 						</p>
 						<a
 							href="/#contact"
-							class="inline-block bg-cryptik-green text-white px-5 py-2 rounded font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+							class="inline-block bg-cryptik-green text-black px-6 py-3 rounded-sm font-bold hover:bg-transparent hover:text-cryptik-green hover:border-cryptik-green border-2 border-cryptik-green transition-all"
 						>
 							Contact Us
 						</a>
 					</div>
 
 					{/* More Resources */}
-					<div class="bg-cryptik-gray/50 rounded p-6 border-2 border-cryptik-green/20">
+					<div class="bg-cryptik-gray/50 border-2 border-cryptik-green/30 rounded-sm p-8">
 						<h3 class="text-2xl font-bold mb-4">
 							More Resources
 						</h3>
@@ -140,7 +140,7 @@ function formatDate(date: Date) {
 </Layout>
 
 <style is:global>
-	/* Prose Styling for Whitepaper Content */
+	/* Blended Prose Styling for Whitepaper Content - Dark Theme */
 	.prose-cryptik {
 		color: #e5e7eb;
 	}
@@ -157,7 +157,7 @@ function formatDate(date: Date) {
 
 	.prose-cryptik h2 {
 		font-size: 2rem;
-		border-bottom: 2px solid rgba(122, 184, 122, 0.2);
+		border-bottom: 3px solid rgba(122, 184, 122, 0.3);
 		padding-bottom: 0.5rem;
 	}
 
@@ -179,11 +179,13 @@ function formatDate(date: Date) {
 	.prose-cryptik a {
 		color: #7AB87A;
 		text-decoration: none;
+		border-bottom: 2px solid #7AB87A;
 		transition: color 0.3s;
 	}
 
 	.prose-cryptik a:hover {
 		color: #E5D073;
+		border-bottom-color: #E5D073;
 	}
 
 	.prose-cryptik ul,
@@ -200,19 +202,20 @@ function formatDate(date: Date) {
 	.prose-cryptik code {
 		background: #1C1C1C;
 		padding: 0.2em 0.4em;
-		border-radius: 0.25rem;
+		border-radius: 0.2rem;
 		font-size: 0.875em;
 		color: #7AB87A;
 		font-family: 'Courier New', monospace;
+		border: 1px solid rgba(122, 184, 122, 0.3);
 	}
 
 	.prose-cryptik pre {
 		background: #1C1C1C;
 		padding: 1.5em;
-		border-radius: 0.5rem;
+		border-radius: 0.25rem;
 		overflow-x: auto;
 		margin: 2em 0;
-		border: 1px solid rgba(122, 184, 122, 0.2);
+		border: 2px solid rgba(122, 184, 122, 0.3);
 	}
 
 	.prose-cryptik pre code {
@@ -220,6 +223,7 @@ function formatDate(date: Date) {
 		padding: 0;
 		color: #e5e7eb;
 		font-size: 0.875rem;
+		border: none;
 	}
 
 	.prose-cryptik blockquote {
@@ -228,6 +232,9 @@ function formatDate(date: Date) {
 		margin: 2em 0;
 		font-style: italic;
 		color: #d1d5db;
+		background: rgba(122, 184, 122, 0.1);
+		padding: 1em 1.5em;
+		border-radius: 0.25rem;
 	}
 
 	.prose-cryptik strong {
@@ -239,6 +246,7 @@ function formatDate(date: Date) {
 		width: 100%;
 		margin: 2em 0;
 		border-collapse: collapse;
+		border: 2px solid rgba(122, 184, 122, 0.3);
 	}
 
 	.prose-cryptik th,
@@ -255,9 +263,9 @@ function formatDate(date: Date) {
 	}
 
 	.prose-cryptik img {
-		border-radius: 0.5rem;
+		border-radius: 0.25rem;
 		margin: 2em 0;
-		border: 1px solid rgba(122, 184, 122, 0.2);
+		border: 2px solid rgba(122, 184, 122, 0.3);
 	}
 
 	.prose-cryptik hr {

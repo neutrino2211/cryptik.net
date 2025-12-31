@@ -19,14 +19,12 @@ function formatDate(date: Date) {
 <Layout title="Whitepapers - Cryptik" description="In-depth security research and analysis from Cryptik's expert team.">
 	<Header client:load />
 
-	<main class="min-h-screen pt-20 pb-12 bg-cryptik-dark">
+	<main class="min-h-screen pt-28 pb-20 bg-cryptik-dark">
 		<div class="max-w-7xl mx-auto px-6">
 			<!-- Page Header -->
-			<div class="mb-12">
-				<h1 class="text-5xl md:text-6xl font-bold mb-6">
-					<span class="bg-gradient-to-r from-cryptik-green to-cryptik-gold bg-clip-text text-transparent">
-						Research & Whitepapers
-					</span>
+			<div class="mb-16">
+				<h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+					Research & <span class="text-cryptik-green">Whitepapers</span>
 				</h1>
 				<p class="text-xl text-gray-400 max-w-3xl">
 					Comprehensive research, threat intelligence, and technical guides from our security experts.
@@ -34,31 +32,31 @@ function formatDate(date: Date) {
 			</div>
 
 			<!-- Whitepapers List -->}
-			<div class="space-y-6">
+			<div class="space-y-8">
 				{sortedWhitepapers.map((paper) => (
-					<article class="group bg-cryptik-gray/50 rounded overflow-hidden border-2 border-white/10 hover:border-cryptik-green transition-all duration-300">
+					<article class="group bg-cryptik-gray/50 border-2 border-white/10 rounded-sm brutal-shadow-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:border-cryptik-green transition-all">
 						<div class="md:flex">
 							{/* Content */}
-							<div class="flex-1 p-6">
+							<div class="flex-1 p-8">
 								{/* Category */}
-								<div class="inline-block bg-cryptik-green/20 text-cryptik-green px-3 py-1 rounded-full text-sm font-semibold mb-4">
+								<div class="inline-block bg-cryptik-green/20 text-cryptik-green px-4 py-2 rounded-sm text-sm font-semibold mb-6 border border-cryptik-green/30">
 									{paper.data.category}
 								</div>
 
 								{/* Title */}
-								<h2 class="text-3xl font-bold mb-4 group-hover:text-cryptik-green transition-colors">
+								<h2 class="text-3xl font-bold mb-6 group-hover:text-cryptik-green transition-colors">
 									<a href={`/whitepapers/${paper.slug}`}>
 										{paper.data.title}
 									</a>
 								</h2>
 
 								{/* Description */}
-								<p class="text-gray-400 mb-6 text-lg leading-relaxed">
+								<p class="text-gray-400 mb-8 text-lg leading-relaxed">
 									{paper.data.description}
 								</p>
 
 								{/* Meta */}
-								<div class="flex items-center gap-4 text-sm text-gray-400 mb-6">
+								<div class="flex items-center gap-4 text-sm text-gray-400 mb-8">
 									<time datetime={paper.data.pubDate.toISOString()}>
 										{formatDate(paper.data.pubDate)}
 									</time>
@@ -67,10 +65,10 @@ function formatDate(date: Date) {
 								</div>
 
 								{/* Actions */}
-								<div class="flex flex-wrap gap-3">
+								<div class="flex flex-wrap gap-4">
 									<a
 										href={`/whitepapers/${paper.slug}`}
-										class="inline-flex items-center gap-2 bg-cryptik-green text-white px-5 py-2 rounded font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+										class="inline-flex items-center gap-2 bg-cryptik-green text-black px-6 py-3 rounded-sm font-bold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
 									>
 										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -81,7 +79,7 @@ function formatDate(date: Date) {
 									{paper.data.downloadUrl && (
 										<a
 											href={paper.data.downloadUrl}
-											class="inline-flex items-center gap-2 border-2 border-cryptik-green text-cryptik-green px-5 py-2 rounded font-semibold hover:bg-cryptik-green hover:text-white transition-all"
+											class="inline-flex items-center gap-2 bg-transparent text-white px-6 py-3 rounded-sm font-bold border-2 border-white hover:bg-white hover:text-cryptik-dark brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
 											download
 										>
 											<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,8 +96,8 @@ function formatDate(date: Date) {
 			</div>
 
 			<!-- CTA Section -->
-			<div class="mt-12 bg-gradient-to-br from-cryptik-green/10 to-cryptik-gold/10 rounded p-8 border-2 border-cryptik-green/20 text-center">
-				<h3 class="text-3xl font-bold mb-4">
+			<div class="mt-16 bg-cryptik-gray/50 border-2 border-cryptik-green/30 rounded-sm p-10 text-center brutal-shadow-lg">
+				<h3 class="text-3xl font-bold mb-6">
 					Need Custom Research?
 				</h3>
 				<p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -107,7 +105,7 @@ function formatDate(date: Date) {
 				</p>
 				<a
 					href="/#contact"
-					class="inline-block bg-cryptik-green text-white px-6 py-3 rounded font-semibold hover:bg-cryptik-gold hover:text-cryptik-dark transition-all"
+					class="inline-block bg-cryptik-green text-black px-8 py-3.5 rounded-sm font-bold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
 				>
 					Contact Our Researchers
 				</a>

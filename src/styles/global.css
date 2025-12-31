@@ -6,3 +6,24 @@
   --color-cryptik-dark: #0A0A0A;
   --color-cryptik-gray: #1C1C1C;
 }
+
+/* Softer brutal shadows - blended style */
+.brutal-shadow {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+.brutal-shadow-sm {
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+.brutal-shadow-lg {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+.brutal-shadow-green {
+  box-shadow: 4px 4px 0px 0px rgba(122, 184, 122, 0.4);
+}
+
+.brutal-shadow-gold {
+  box-shadow: 4px 4px 0px 0px rgba(229, 208, 115, 0.4);
+}
