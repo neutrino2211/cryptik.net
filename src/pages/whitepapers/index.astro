@@ -1,117 +1,155 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
-const allWhitepapers = await getCollection('whitepapers');
-const sortedWhitepapers = allWhitepapers.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allWhitepapers = await getCollection("whitepapers");
+const sortedWhitepapers = allWhitepapers.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 
 function formatDate(date: Date) {
-	return new Date(date).toLocaleDateString('en-US', {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric'
-	});
+    return new Date(date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
 }
 ---
 
-<Layout title="Whitepapers - Cryptik" description="In-depth security research and analysis from Cryptik's expert team.">
-	<Header client:load />
+<Layout
+    title="Whitepapers - Cryptik"
+    description="In-depth security research and analysis from Cryptik's expert team."
+>
+    <Header client:load />
 
-	<main class="min-h-screen pt-28 pb-20 bg-cryptik-dark">
-		<div class="max-w-7xl mx-auto px-6">
-			<!-- Page Header -->
-			<div class="mb-16">
-				<h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-					Research & <span class="text-cryptik-green">Whitepapers</span>
-				</h1>
-				<p class="text-xl text-gray-400 max-w-3xl">
-					Comprehensive research, threat intelligence, and technical guides from our security experts.
-				</p>
-			</div>
+    <main class="min-h-screen pt-28 pb-20 bg-cryptik-dark">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Research & <span class="text-cryptik-green"
+                        >Whitepapers</span
+                    >
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl">
+                    Comprehensive research, threat intelligence, and technical
+                    guides from our security experts.
+                </p>
+            </div>
 
-			<!-- Whitepapers List -->}
-			<div class="space-y-8">
-				{sortedWhitepapers.map((paper) => (
-					<article class="group bg-cryptik-gray/50 border-2 border-white/10 rounded-sm brutal-shadow-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:border-cryptik-green transition-all">
-						<div class="md:flex">
-							{/* Content */}
-							<div class="flex-1 p-8">
-								{/* Category */}
-								<div class="inline-block bg-cryptik-green/20 text-cryptik-green px-4 py-2 rounded-sm text-sm font-semibold mb-6 border border-cryptik-green/30">
-									{paper.data.category}
-								</div>
+            <!-- Whitepapers List -->
+            <div class="space-y-8">
+                {
+                    sortedWhitepapers.map((paper) => (
+                        <article class="group bg-cryptik-gray/50 border-2 border-white/10 rounded-sm brutal-shadow-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:border-cryptik-green transition-all">
+                            <div class="md:flex">
+                                {/* Content */}
+                                <div class="flex-1 p-8">
+                                    {/* Category */}
+                                    <div class="inline-block bg-cryptik-green/20 text-cryptik-green px-4 py-2 rounded-sm text-sm font-semibold mb-6 border border-cryptik-green/30">
+                                        {paper.data.category}
+                                    </div>
 
-								{/* Title */}
-								<h2 class="text-3xl font-bold mb-6 group-hover:text-cryptik-green transition-colors">
-									<a href={`/whitepapers/${paper.slug}`}>
-										{paper.data.title}
-									</a>
-								</h2>
+                                    {/* Title */}
+                                    <h2 class="text-3xl font-bold mb-6 group-hover:text-cryptik-green transition-colors">
+                                        <a href={`/whitepapers/${paper.slug}`}>
+                                            {paper.data.title}
+                                        </a>
+                                    </h2>
 
-								{/* Description */}
-								<p class="text-gray-400 mb-8 text-lg leading-relaxed">
-									{paper.data.description}
-								</p>
+                                    {/* Description */}
+                                    <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+                                        {paper.data.description}
+                                    </p>
 
-								{/* Meta */}
-								<div class="flex items-center gap-4 text-sm text-gray-400 mb-8">
-									<time datetime={paper.data.pubDate.toISOString()}>
-										{formatDate(paper.data.pubDate)}
-									</time>
-									<span>•</span>
-									<span>{paper.data.author}</span>
-								</div>
+                                    {/* Meta */}
+                                    <div class="flex items-center gap-4 text-sm text-gray-400 mb-8">
+                                        <time
+                                            datetime={paper.data.pubDate.toISOString()}
+                                        >
+                                            {formatDate(paper.data.pubDate)}
+                                        </time>
+                                        <span>•</span>
+                                        <span>{paper.data.author}</span>
+                                    </div>
 
-								{/* Actions */}
-								<div class="flex flex-wrap gap-4">
-									<a
-										href={`/whitepapers/${paper.slug}`}
-										class="inline-flex items-center gap-2 bg-cryptik-green text-black px-6 py-3 rounded-sm font-bold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
-									>
-										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-										</svg>
-										Read Whitepaper
-									</a>
-									{paper.data.downloadUrl && (
-										<a
-											href={paper.data.downloadUrl}
-											class="inline-flex items-center gap-2 bg-transparent text-white px-6 py-3 rounded-sm font-bold border-2 border-white hover:bg-white hover:text-cryptik-dark brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
-											download
-										>
-											<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-											</svg>
-											Download PDF
-										</a>
-									)}
-								</div>
-							</div>
-						</div>
-					</article>
-				))}
-			</div>
+                                    {/* Actions */}
+                                    <div class="flex flex-wrap gap-4">
+                                        <a
+                                            href={`/whitepapers/${paper.slug}`}
+                                            class="inline-flex items-center gap-2 bg-cryptik-green text-black px-6 py-3 rounded-sm font-bold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
+                                        >
+                                            <svg
+                                                class="w-5 h-5"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                                />
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                                />
+                                            </svg>
+                                            Read Whitepaper
+                                        </a>
+                                        {paper.data.downloadUrl && (
+                                            <a
+                                                href={paper.data.downloadUrl}
+                                                class="inline-flex items-center gap-2 bg-transparent text-white px-6 py-3 rounded-sm font-bold border-2 border-white hover:bg-white hover:text-cryptik-dark brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
+                                                download
+                                            >
+                                                <svg
+                                                    class="w-5 h-5"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                                    />
+                                                </svg>
+                                                Download PDF
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    ))
+                }
+            </div>
 
-			<!-- CTA Section -->
-			<div class="mt-16 bg-cryptik-gray/50 border-2 border-cryptik-green/30 rounded-sm p-10 text-center brutal-shadow-lg">
-				<h3 class="text-3xl font-bold mb-6">
-					Need Custom Research?
-				</h3>
-				<p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-					Our team can provide tailored threat intelligence and security assessments for your organization.
-				</p>
-				<a
-					href="/#contact"
-					class="inline-block bg-cryptik-green text-black px-8 py-3.5 rounded-sm font-bold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
-				>
-					Contact Our Researchers
-				</a>
-			</div>
-		</div>
-	</main>
+            <!-- CTA Section -->
+            <div
+                class="mt-16 bg-cryptik-gray/50 border-2 border-cryptik-green/30 rounded-sm p-10 text-center brutal-shadow-lg"
+            >
+                <h3 class="text-3xl font-bold mb-6">Need Custom Research?</h3>
+                <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Our team can provide tailored threat intelligence and
+                    security assessments for your organization.
+                </p>
+                <a
+                    href="/#contact"
+                    class="inline-block bg-cryptik-green text-black px-8 py-3.5 rounded-sm font-bold border-2 border-cryptik-green hover:bg-transparent hover:text-cryptik-green brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                >
+                    Contact Our Researchers
+                </a>
+            </div>
+        </div>
+    </main>
 
-	<Footer client:load />
+    <Footer client:load />
 </Layout>
